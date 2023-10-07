@@ -23,10 +23,10 @@
 <dd>
   <form action = "/update_photo/<%= @the_photo.id%>" > 
     <label for ="browser_image"> Image </label>
-    <input id= "browser_image" type = "text" name="input_image" placeholder = "Enter a url for the image..." >
+    <input id= "browser_image" type = "text" name="input_image" placeholder = "Enter a url for the image..." value = <%=@the_photo.image%>>
 
     <label for="browser_caption"> Caption </label>
-    <textarea id = "browser_caption" name = "input_caption" placeholder = "Enter a caption for the photo">
+    <textarea id = "browser_caption" name = "input_caption" placeholder = "Enter a caption for the photo" value = <%=@the_photo.caption%>>
     </textarea>
 
     <button> Update photo </button>
