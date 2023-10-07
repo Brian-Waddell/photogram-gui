@@ -69,7 +69,9 @@ class PhotosController < ApplicationController
   the_photo.save 
 
 
-    render({:template => "/photo_templates/update"})
+    #render({:template => "/photo_templates/update"})
+
+    redirect_to("/photos/" +the_photo.id.to_s)
   end 
 
 end
