@@ -17,7 +17,7 @@
       <td> <%= a_pic.caption%></td>
       <td> <%= a_pic.poster.username%></td>
       <td> <%=a_pic.created_at%> </td>
-      <td> <a href="/photos/<% a_pic.id%>"> Show details </a> </td>
+      <td> <a href="/photos/<%= a_pic.id%>"> Show details </a> </td>
 
   </tr>
   <% end %>
