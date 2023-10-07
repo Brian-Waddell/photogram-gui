@@ -49,6 +49,7 @@
     <th> Comment   </th>
     <th> Posted </th>
   </tr>
+  
  <% @the_photo.comments.each do |a_comment| %>
 
   <tr>
@@ -56,7 +57,16 @@
     <td> <%= a_comment.body%> </td>
     <td> <%= a_comment.created_at%></td>
   </tr>
+
 <% end %>
-
-
+</table>
 <h3> Add a new comment </h3>
+<form action = "/photos/<%= @the_photo.id%>" >
+  <label for = "photo_id"> Photo ID </label>
+  <input id= "photo_id" type = "text" value = "<%= @the_photo.id%>" >
+  <label for = "author_id"> Author ID </label>
+  <input id = "author_id" type = "text" placeholder = "Enter your author ID">
+  <label for = "user_comment"> Comment </label>
+  <textarea id = "user_comment" type = "text" placeholder = "Enter a comment..."> </textarea>
+  <button> Add comment </button>
+  </form>
