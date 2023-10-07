@@ -24,4 +24,14 @@ class PhotosController < ApplicationController
     render({:template => "/photo_templates/show"})
   end 
 
+  def delete 
+     the_id = params.fetch("photo_path")
+     matching_photos = Photo.where({ :id => the_id})
+     the_pic = matching_photos.first
+
+     the_pic.destroy
+
+  redirect_to("/photos")
+  end 
+
 end
