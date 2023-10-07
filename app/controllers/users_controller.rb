@@ -9,9 +9,12 @@ class UsersController < ApplicationController
   def show
     input_username = params.fetch("path_username")
     matching_username = User.where({ :username => input_username})
-    the_user = matching_username.first
+    
+    @the_user = matching_username.first 
 
+    
     render({:template => "/users_templates/show"})
+    
   end 
 
 end 
