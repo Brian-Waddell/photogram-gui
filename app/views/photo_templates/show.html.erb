@@ -1,22 +1,62 @@
 <h1> Photo Details </h1>
 
 
+
 <dl>
   <dt>Image</dt>
 
-  <dd> <%= @the_user.id %> <dd>
+  <dd> <img src = "<%= @the_photo.image%>"> <dd>
 
   <dt>Caption</dt>
 
-  <dd> form goes here <dd>
+  <dd> <%= @the_photo.caption %> <dd>
 
   <dt>Owner</dt>
 
-  <dd> form goes here <dd>
+  <dd> <%= @the_photo.poster.username %> <dd>
 
   <dt>Posted</dt>
 
-  <dd> form goes here <dd>
+  <dd> <%= @the_photo.created_at %> <dd>
+
+<dt> Edit Photo </dt>
+<dd>
+  <form action = "/update_photo/<%= @the_photo.id%>" > 
+    <label for ="browser_image"> Image </label>
+    <input id= "browser_image" type = "text" name="input_image" placeholder = "Enter a url for the image..." >
+
+    <label for="browser_caption"> Caption </label>
+    <textarea id = "browser_caption" name = "input_caption" placeholder = "Enter a caption for the photo">
+    </textarea>
+
+    <button> Update photo </button>
+    </form>
+   </dd>
 
 
+  <dt> Delete photo </dt>
+    <dd>
+      <a href="/delete_photo/<%= @the_photo.id%>" >
+      Delete this photo
+      </a> 
+    </dd>
 </dl>
+
+<h2> Comments </h2>
+<table>
+  <tr> 
+    <th> Commenter </th>
+    <th> Comment   </th>
+    <th> Posted </th>
+  </tr>
+ <% @the_photo.comments.each do |a_comment| %>
+
+  <tr>
+    <td> <%= a_comment.commenter.username%> </td>
+    <td> <%= a_comment.body%> </td>
+    <td> <%= a_comment.created_at%></td>
+  </tr>
+<% end %>
+
+
+<h3> Add a new comment </h3>

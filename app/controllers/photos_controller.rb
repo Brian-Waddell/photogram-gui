@@ -12,6 +12,7 @@ class PhotosController < ApplicationController
   def show 
 
     #photo_path => 777
+    
 
     url_id = params.fetch("photo_path")
 
