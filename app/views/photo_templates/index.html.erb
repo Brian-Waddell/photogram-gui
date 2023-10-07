@@ -1,0 +1,25 @@
+<h1> List of Photos </h1>
+
+
+<table border = 1>
+
+  <tr>
+    <th> Image </th>
+    <th> Caption </th>
+    <th> Owner </th>
+    <th> Posted </th>
+    <th> Links </th>
+  </tr>
+ 
+ <% @photo_list.each do |a_pic| %>
+  ,<tr>
+      <td> <img src="<%= a_pic.image %>" >  </td>
+      <td> <%= a_pic.caption%></td>
+      <td> <%= a_pic.poster.username%></td>
+      <td> <%=a_pic.created_at%> </td>
+      <td> <a href="/photos/<% a_pic.id%>"> Show details </a> </td>
+
+  </tr>
+  <% end %>
+
+</table>
