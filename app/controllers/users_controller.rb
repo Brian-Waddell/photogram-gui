@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   new_user.save
 
 
-    redirect_to("/users/<%= new_user.username %>")
+    redirect_to("/users/" +new_user.username)
 
   end
 
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
     the_username = matching_users.first 
 
-   input_user = params.fetch("update_username")
+   input_user = params.fetch("update_username" )
    
   
    the_username.username = input_user
