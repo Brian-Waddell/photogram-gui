@@ -26,7 +26,6 @@ class UsersController < ApplicationController
 
    input_user = params.fetch("update_username" )
    
-  
    the_username.username = input_user
 
    the_username.save 

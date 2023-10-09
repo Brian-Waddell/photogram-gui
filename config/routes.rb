@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   
   get("/update_users/:new_username", { :controller => "users", :action => "update"})
   get("/insert_user", {:controller => "users", :action => "create"})
+
+  
   
 
   get("/photos", { :controller => "photos", :action => "index"})
@@ -17,4 +19,6 @@ Rails.application.routes.draw do
   get("/insert_photo", {:controller => "photos", :action => "create"})
   get("/update_photo/:modify_id", {:controller => "photos", :action => "update"} )
 
+  post("/insert_comment/:photo_id", {:controller => "photos", :action => "new_comment"})
+  
 end

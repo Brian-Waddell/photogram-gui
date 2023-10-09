@@ -51,6 +51,21 @@ class PhotosController < ApplicationController
     redirect_to("/photos/" +new_photo.id.to_s)
   end 
 
+  def new_comment 
+  user_photo_id = params.fetch("photo_query")
+  user_author_id = params.fetch("author_query")
+  user_comment = params.fetch("comment_query")
+
+   new_comment = Comment.new 
+   new_comment.photo_id = user_photo_id 
+   new_comment.author_id = user_author_id
+   new_comment.body = user_comment
+
+   new_comment.save
+
+    redirect_to("/photos/" +new_comment.photo_id.to_s)
+  end 
+
   def update 
 
     the_id = params.fetch("modify_id")
@@ -59,12 +74,20 @@ class PhotosController < ApplicationController
 
     the_photo = matching_photos.first 
 
-   input_image = params.fetch("input_image")
+  input_image = params.fetch("input_image")
   input_caption = params.fetch("input_caption")
-  
 
+  #photo_query = params.fetch("photo_query")
+  #author_query = params.fetch("author_query")
+  #comment_query = params.fetch("comment_query")
+
+  
   the_photo.image = input_image 
-  the_photo.caption = input_caption 
+  the_photo.caption = input_caption
+
+  #the_photo.id = photo_query
+  #the_photo.caption = comment_query
+  #the_photo.owner_id = author_query 
 
   the_photo.save 
 

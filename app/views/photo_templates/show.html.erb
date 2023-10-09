@@ -5,7 +5,7 @@
 <dl>
   <dt>Image</dt>
 
-  <dd> <img src = "<%= @the_photo.image%>"> <dd>
+  <dd> <img src="<%= @the_photo.image%>"> <dd>
 
   <dt>Caption</dt>
 
@@ -26,7 +26,7 @@
     <input id= "browser_image" type = "text" name="input_image" placeholder = "Enter a url for the image..." value = <%=@the_photo.image%>>
 
     <label for="browser_caption"> Caption </label>
-    <textarea id = "browser_caption" name = "input_caption" placeholder = "Enter a caption for the photo" value = "<%=@the_photo.caption%>" >
+    <textarea id = "browser_caption" name = "input_caption" placeholder = "Enter a caption for the photo"  > <%= @the_photo.caption %>
     </textarea>
 
     <button> Update photo </button>
@@ -63,7 +63,7 @@
 </table>
 
 <h3> Add a new comment </h3>
-  <form action = "/photos/<%= @the_photo.id%>"> 
+  <form action = "/insert_comment/<%= @the_photo.id %>" method = "post"> 
   <label for = "photo_id"> Photo ID </label>
   <input id= "photo_id" type = "text" value = "<%= @the_photo.id%>"  name = "photo_query">
 
@@ -71,8 +71,8 @@
   <input id = "author_id" type = "text" placeholder = "Enter your author ID" name = "author_query">
 
   <label for = "user_comment"> Comment </label>
-  <textarea id = "user_comment" type = "text" placeholder="Enter a comment..." name ="comment_query"> </textarea>
-  
+  <textarea id = "user_comment" type = "text" placeholder="Enter a comment..." name = "comment_query"> </textarea>
+
   <button> Add comment </button>
   </form>
   
